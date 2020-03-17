@@ -7,22 +7,22 @@ A bunch of data structures and their operations designed in Java for educational
 - Nodes point to other nodes
 
 ### Singly Linked List
-### Operations:
-#### Insert
+#### Operations:
+##### Insert
 	- insertHead
 		- Inserts a new head node to the beginning
 	- insertEnd
 		- Inserts a node to the end
 	- insertAt
 		- Inserts a node at an index (starting at 0=head)
-#### Delete
+##### Delete
 	- deleteHead
 		- Deletes the head
 	- delete
 		- Deletes the first node occurrence of of a data
 	- deleteAt
 		- Deletes a node at an index (starting at 0=head)
-#### Other
+##### Other
 	- print
 		- Prints easily readable list
 	- search
