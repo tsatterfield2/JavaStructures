@@ -1,5 +1,5 @@
 # Java-Structures
-A bunch of data structures and their operations designed in Java for educational purposes
+A bunch of data structures and their operations designed in Java for educational purposes.
 
 # Linked Lists
 - Dynamically sizing
