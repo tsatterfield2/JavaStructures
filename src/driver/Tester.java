@@ -1,5 +1,7 @@
 package driver;
 
+import linkedlists.CircularLinkedList;
+import linkedlists.DoublyLinkedList;
 import linkedlists.SinglyLinkedList;
 
 public class Tester {
@@ -10,6 +12,8 @@ public class Tester {
 
 		///////////// SINGLY LINKED LIST /////////////
 		SinglyLinkedList sll = new SinglyLinkedList();
+		boolean found;
+		int size;
 
 		///////////// INSERTIONS /////////////
 		sll.insertEnd(3);
@@ -30,17 +34,69 @@ public class Tester {
 		// 8 -> 1 -> 3 -> 7 -> 10 -> null
 		sll.deleteHead();
 		// 1 -> 3 -> 7 -> 10 -> null
-		sll.delete(10);
+		sll.deleteEnd();
 		// 1 -> 3 -> 7 -> null
 
 		///////////// OTHER FUNCTIONS /////////////
 		sll.print();
+		// Your Singly Linked List of size 3:
 		// 1 -> 3 -> 7 -> null
-		boolean ft = sll.search(7);
-		// ft == true
-		boolean ff = sll.search(12);
-		// ff == false
-		int s = sll.getSize();
-		// s == 3
+		found = sll.search(7);
+		// found == true
+		found = sll.search(12);
+		// found == false
+		size = sll.getSize();
+		// size == 3
+
+		///////////// DOUBLY LINKED LIST /////////////
+		DoublyLinkedList dll = new DoublyLinkedList();
+
+		///////////// INSERTIONS /////////////
+		dll.insertEnd(3);
+		// null <- 3 -> null
+		dll.insertHead(4);
+		// null <- 4 <-> 3 -> null
+		dll.insertEnd(10);
+		// null <- 4 <-> 3 <-> 10 -> null
+		dll.insertAt(7, 2);
+		// null <- 4 <-> 3 <-> 7 <-> 10 -> null
+		dll.insertAt(1, 0);
+		// null <- 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
+		dll.insertHead(8);
+		// null <- 8 <-> 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
+
+		///////////// DELETIONS /////////////
+		dll.deleteAt(2);
+		// null <- 8 <-> 1 <-> 3 <-> 7 <-> 10 -> null
+		dll.deleteHead();
+		// null <- 1 <-> 3 <-> 7 <-> 10 -> null
+		dll.deleteEnd();
+		// null <- 1 <-> 3 <-> 7 -> null
+
+		///////////// OTHER FUNCTIONS /////////////
+		dll.print();
+		// Your Doubly Linked List of size 3:
+		// null <- 1 <-> 3 <-> 7 -> null
+		dll.printReverse();
+		// Your Reversed Doubly Linked List of size 3:
+		// null <- 7 <-> 3 <-> 1 -> null
+		found = dll.search(7);
+		// found == true
+		found = dll.search(12);
+		// found == false
+		size = dll.getSize();
+		// size == 3
+
+		///////////// CIRCULAR LINKED LIST /////////////
+		CircularLinkedList cll = new CircularLinkedList();
+
+		///////////// INSERTIONS /////////////
+
+		///////////// DELETIONS /////////////
+
+		///////////// OTHER FUNCTIONS /////////////
+
+		///////////// LINKED LISTS /////////////
+
 	}
 }

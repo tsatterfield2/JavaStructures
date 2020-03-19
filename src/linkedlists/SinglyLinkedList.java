@@ -58,9 +58,17 @@ public class SinglyLinkedList {
 	 */
 	public void insertHead(int data) {
 		Node newNode = new Node(data);
+
+		// Empty list
+		if (this.size == 0) {
+			this.head = newNode;
+			this.size++;
+			return;
+		}
+
 		newNode.next = this.head;
 		this.head = newNode;
-		size++;
+		this.size++;
 	}
 
 	/*
@@ -72,21 +80,18 @@ public class SinglyLinkedList {
 
 		// Make it the head if the list is empty
 		if (this.head == null) {
-			this.head = newNode;
+			this.insertHead(data);
+			return;
 		}
 
-		// Insert it to the end of the list
-		else {
-			Node lastNode = this.head;
+		Node lastNode = this.head;
 
-			// Loop to the end of the list
-			while (lastNode.next != null) {
-				lastNode = lastNode.next;
-			}
-
-			lastNode.next = newNode;
+		// Loop to the end of the list
+		while (lastNode.next != null) {
+			lastNode = lastNode.next;
 		}
 
+		lastNode.next = newNode;
 		this.size++;
 	}
 
@@ -101,28 +106,32 @@ public class SinglyLinkedList {
 		Node currentNode = this.head;
 
 		// Make sure the index is valid
-		if (index > this.size || index < 0) {
+		if (index >= this.size || index < 0) {
 			System.out.println("Invalid index");
+			return;
 		}
 
 		// Index is 0, insert at head
-		else if (index == 0) {
+		if (index == 0) {
 			this.insertHead(data);
+			return;
 		}
 
-		// Index is valid
-		else {
-
-			// Loop to desired position
-			for (int i = 0; i < index - 1; i++) {
-				currentNode = currentNode.next;
-			}
-
-			// Link the node in
-			newNode.next = currentNode.next;
-			currentNode.next = newNode;
-			this.size++;
+		// Asking to insert at the end
+		if (index == this.size) {
+			this.insertEnd(data);
+			return;
 		}
+
+		// Loop to desired position
+		for (int i = 0; i < index - 1; i++) {
+			currentNode = currentNode.next;
+		}
+
+		// Link the node in
+		newNode.next = currentNode.next;
+		currentNode.next = newNode;
+		this.size++;
 	}
 
 	///////////// DELETIONS /////////////
@@ -132,44 +141,27 @@ public class SinglyLinkedList {
 	 */
 	public void deleteHead() {
 		this.head = this.head.next;
-		size--;
+		this.size--;
 	}
 
 	/**
-	 * Delete an element from the list (Only deletes the first occurrence)
+	 * Delete the final node in the list
 	 * 
 	 * @param data
 	 */
-	public void delete(int data) {
+	public void deleteEnd() {
 		Node current = this.head;
 		Node previous = current;
 
-		// Element was the head
-		if (this.head.data == data) {
-			this.head = current.next;
-			size--;
+		// Loop to the end
+		while (current.next != null) {
+			previous = current;
+			current = current.next;
 		}
 
-		// Element is later in the list
-		else {
-
-			// Loop through the list until we find the target
-			while (current != null && current.data != data) {
-				previous = current;
-				current = current.next;
-			}
-
-			// Key is found
-			if (current != null) {
-				previous.next = current.next;
-				size--;
-			}
-
-			// Key not found
-			else {
-				System.out.println(data + " not found.");
-			}
-		}
+		// At the end
+		previous.next = current.next;
+		this.size--;
 	}
 
 	/**
@@ -183,27 +175,31 @@ public class SinglyLinkedList {
 		// If index is 0, remove head
 		if (index == 0) {
 			this.deleteHead();
+			return;
 		}
 
 		// Make sure index is valid
-		else if (index > this.size - 1 || index < 0) {
+		if (index > this.size - 1 || index < 0) {
 			System.out.println("Invalid Index");
+			return;
 		}
 
-		// Valid index
-		else {
-
-			// Loop to the index
-			for (int i = 0; i < index - 1; i++) {
-				current = current.next;
-
-			}
-
-			// Remove pointers to the node
-			Node target = current.next;
-			current.next = target.next;
-			this.size--;
+		// Asking to delete at the end
+		if (index == this.size) {
+			this.deleteEnd();
+			return;
 		}
+
+		// Loop to the index
+		for (int i = 0; i < index - 1; i++) {
+			current = current.next;
+
+		}
+
+		// Remove pointers to the node
+		Node target = current.next;
+		current.next = target.next;
+		this.size--;
 	}
 
 	///////////// OTHER FUNCTIONS /////////////
@@ -212,6 +208,7 @@ public class SinglyLinkedList {
 	 * Print the entire list
 	 */
 	public void print() {
+		System.out.printf("\nYour Singly Linked List of size %d:\n", this.size);
 		Node current = this.head;
 
 		// Loop through the list
@@ -221,7 +218,7 @@ public class SinglyLinkedList {
 		}
 
 		// Display the final node as null
-		System.out.print("null");
+		System.out.print("null\n");
 	}
 
 	/**
@@ -232,8 +229,13 @@ public class SinglyLinkedList {
 	public boolean search(int key) {
 		Node current = this.head;
 
+		// If there's only 1 node
+		if (this.head.data == key) {
+			return true;
+		}
+
 		// Loop through the list
-		while (true) {
+		while (current.next != null) {
 			current = current.next;
 
 			// Found it
