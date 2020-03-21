@@ -83,13 +83,15 @@ public class DoublyLinkedList {
 	 */
 	public void insertEnd(int data) {
 		Node newEnd = new Node(data);
-		Node current = this.head;
 
 		// List is empty
 		if (this.size == 0) {
-			this.insertHead(data);
+			this.head = newEnd;
+			size++;
 			return;
 		}
+
+		Node current = this.head;
 
 		// Get to the end
 		while (current.next != null) {
@@ -110,7 +112,6 @@ public class DoublyLinkedList {
 	 */
 	public void insertAt(int data, int index) {
 		Node newNode = new Node(data);
-		Node current = this.head;
 
 		// Asking to insert at head
 		if (index == 0) {
@@ -129,6 +130,8 @@ public class DoublyLinkedList {
 			System.out.println("Invalid index");
 			return;
 		}
+
+		Node current = this.head;
 
 		// Loop to right before the index
 		for (int i = 0; i < index - 1; i++) {
@@ -191,6 +194,12 @@ public class DoublyLinkedList {
 	 */
 	public void deleteAt(int index) {
 		Node current = this.head;
+
+		// List is empty
+		if (this.size == 0) {
+			System.out.println("List is already empty");
+			return;
+		}
 
 		// Asking to delete the head
 		if (index == 0) {
@@ -283,12 +292,8 @@ public class DoublyLinkedList {
 			if (current.data == key) {
 				return true;
 			}
-
-			// Didn't find it
-			if (current.next == null) {
-				break;
-			}
 		}
+
 		return false;
 	}
 

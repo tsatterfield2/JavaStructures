@@ -91,12 +91,36 @@ public class Tester {
 		CircularLinkedList cll = new CircularLinkedList();
 
 		///////////// INSERTIONS /////////////
+		cll.insertEnd(3);
+		// null <- 3 -> null
+		cll.insertHead(4);
+		// null <- 4 <-> 3 -> null
+		cll.insertEnd(10);
+		// null <- 4 <-> 3 <-> 10 -> null
+		cll.insertAt(7, 2);
+		// null <- 4 <-> 3 <-> 7 <-> 10 -> null
+		cll.insertAt(1, 0);
+		// null <- 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
+		cll.insertHead(8);
+		// null <- 8 <-> 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
 
 		///////////// DELETIONS /////////////
+		cll.deleteAt(2);
+		// null <- 8 <-> 1 <-> 3 <-> 7 <-> 10 -> null
+		cll.deleteHead();
+		// null <- 1 <-> 3 <-> 7 <-> 10 -> null
+		cll.deleteEnd();
+		// null <- 1 <-> 3 <-> 7 -> null
 
 		///////////// OTHER FUNCTIONS /////////////
-
-		///////////// LINKED LISTS /////////////
-
+		cll.print();
+		// Your Circular Linked List of size 3:
+		// 1 -> 3 -> 7 -> Back to Head: 1 -> 3 -> 7 -> Back to Head
+		found = cll.search(7);
+		// found == true
+		found = cll.search(12);
+		// found == false
+		size = cll.getSize();
+		// size == 3
 	}
 }

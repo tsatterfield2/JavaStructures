@@ -57,17 +57,17 @@ public class SinglyLinkedList {
 	 * @param data
 	 */
 	public void insertHead(int data) {
-		Node newNode = new Node(data);
+		Node newHead = new Node(data);
 
 		// Empty list
 		if (this.size == 0) {
-			this.head = newNode;
+			this.head = newHead;
 			this.size++;
 			return;
 		}
 
-		newNode.next = this.head;
-		this.head = newNode;
+		newHead.next = this.head;
+		this.head = newHead;
 		this.size++;
 	}
 
@@ -75,23 +75,24 @@ public class SinglyLinkedList {
 	 * Insert an element to the end of the list
 	 */
 	public void insertEnd(int data) {
-		Node newNode = new Node(data);
-		newNode.next = null;
+		Node newEnd = new Node(data);
+		newEnd.next = null;
 
 		// Make it the head if the list is empty
-		if (this.head == null) {
-			this.insertHead(data);
+		if (this.size == 0) {
+			this.head = newEnd;
+			this.size++;
 			return;
 		}
 
-		Node lastNode = this.head;
+		Node current = this.head;
 
 		// Loop to the end of the list
-		while (lastNode.next != null) {
-			lastNode = lastNode.next;
+		while (current.next != null) {
+			current = current.next;
 		}
 
-		lastNode.next = newNode;
+		current.next = newEnd;
 		this.size++;
 	}
 
@@ -103,7 +104,7 @@ public class SinglyLinkedList {
 	 */
 	public void insertAt(int data, int index) {
 		Node newNode = new Node(data);
-		Node currentNode = this.head;
+		Node current = this.head;
 
 		// Make sure the index is valid
 		if (index >= this.size || index < 0) {
@@ -123,14 +124,14 @@ public class SinglyLinkedList {
 			return;
 		}
 
-		// Loop to desired position
+		// Loop to before desired position
 		for (int i = 0; i < index - 1; i++) {
-			currentNode = currentNode.next;
+			current = current.next;
 		}
 
 		// Link the node in
-		newNode.next = currentNode.next;
-		currentNode.next = newNode;
+		newNode.next = current.next;
+		current.next = newNode;
 		this.size++;
 	}
 
@@ -140,6 +141,13 @@ public class SinglyLinkedList {
 	 * Delete the head from the list
 	 */
 	public void deleteHead() {
+
+		// List is empty
+		if (this.size == 0) {
+			System.out.println("List is already empty");
+			return;
+		}
+
 		this.head = this.head.next;
 		this.size--;
 	}
@@ -152,6 +160,12 @@ public class SinglyLinkedList {
 	public void deleteEnd() {
 		Node current = this.head;
 		Node previous = current;
+
+		// List is empty
+		if (this.size == 0) {
+			System.out.println("List is already empty");
+			return;
+		}
 
 		// Loop to the end
 		while (current.next != null) {
@@ -172,6 +186,12 @@ public class SinglyLinkedList {
 	public void deleteAt(int index) {
 		Node current = this.head;
 
+		// List is empty
+		if (this.size == 0) {
+			System.out.println("List is already empty");
+			return;
+		}
+
 		// If index is 0, remove head
 		if (index == 0) {
 			this.deleteHead();
@@ -190,15 +210,14 @@ public class SinglyLinkedList {
 			return;
 		}
 
-		// Loop to the index
+		// Loop to before the index
 		for (int i = 0; i < index - 1; i++) {
 			current = current.next;
 
 		}
 
 		// Remove pointers to the node
-		Node target = current.next;
-		current.next = target.next;
+		current.next = current.next.next;
 		this.size--;
 	}
 
@@ -241,11 +260,6 @@ public class SinglyLinkedList {
 			// Found it
 			if (current.data == key) {
 				return true;
-			}
-
-			// Didn't find it
-			if (current.next == null) {
-				break;
 			}
 		}
 		return false;
