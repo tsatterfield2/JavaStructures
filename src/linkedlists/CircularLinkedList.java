@@ -142,7 +142,7 @@ public class CircularLinkedList {
 		Node current = this.head;
 
 		// Loop to desired position
-		while (current.next != this.head) {
+		for (int i = 0; i < index - 1; i++) {
 			current = current.next;
 		}
 

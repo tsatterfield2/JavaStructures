@@ -103,7 +103,6 @@ public class Tester {
 		// null <- 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
 		cll.insertHead(8);
 		// null <- 8 <-> 1 <-> 4 <-> 3 <-> 7 <-> 10 -> null
-
 		///////////// DELETIONS /////////////
 		cll.deleteAt(2);
 		// null <- 8 <-> 1 <-> 3 <-> 7 <-> 10 -> null
