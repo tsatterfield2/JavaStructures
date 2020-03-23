@@ -3,17 +3,20 @@ package driver;
 import linkedlists.CircularLinkedList;
 import linkedlists.DoublyLinkedList;
 import linkedlists.SinglyLinkedList;
+import stacksandqueues.ArrayStack;
+import stacksandqueues.LinkedListStack;
 
 public class Tester {
 
 	public static void main(String[] args) {
+		boolean found;
+		int size;
+		int popped;
 
 		///////////// LINKED LISTS /////////////
 
 		///////////// SINGLY LINKED LIST /////////////
 		SinglyLinkedList sll = new SinglyLinkedList();
-		boolean found;
-		int size;
 
 		///////////// INSERTIONS /////////////
 		sll.insertEnd(3);
@@ -121,5 +124,86 @@ public class Tester {
 		// found == false
 		size = cll.getSize();
 		// size == 3
+
+		///////////// LINKED LISTS /////////////
+
+		System.out.println("\n");
+
+		///////////// STACKS /////////////
+
+		///////////// ARRAY STACK /////////////
+		ArrayStack as = new ArrayStack(5);
+
+		as.peek();
+		// Stack underflow
+		as.push(12);
+		// 12 pushed into stack
+		as.push(1);
+		// 1 pushed into stack
+		as.push(2);
+		// 2 pushed into stack
+		as.peek();
+		// Current top: 2
+		popped = as.pop();
+		// popped == 2
+		as.peek();
+		// Current top: 1
+		as.push(15);
+		// 15 pushed into stack
+		as.push(13);
+		// 13 pushed into stack
+		as.push(90);
+		// 90 pushed into stack
+		as.push(20);
+		// Stack overflow
+		found = as.search(13);
+		// found == true
+		as.print();
+		// Your stack:
+		// |90| <- TOP
+		// |13|
+		// |15|
+		// |1|
+		// |12|
+		// Current capacity: 5/5
+
+		///////////// LINKED LIST STACK /////////////
+		LinkedListStack ls = new LinkedListStack();
+
+		ls.peek();
+		// Stack underflow
+		ls.push(12);
+		// 12 pushed into stack
+		ls.push(1);
+		// 1 pushed into stack
+		ls.push(2);
+		// 2 pushed into stack
+		ls.peek();
+		// Current top: 2
+		popped = ls.pop();
+		// popped == 2
+		ls.peek();
+		// Current top: 1
+		ls.push(15);
+		// 15 pushed into stack
+		ls.push(13);
+		// 13 pushed into stack
+		ls.push(90);
+		// 90 pushed into stack
+		ls.push(20);
+		// 20 pushed into stack
+		found = ls.search(13);
+		// found == true
+		ls.print();
+		// Your stack:
+		// |20| <- TOP
+		// |90|
+		// |13|
+		// |15|
+		// |1|
+		// |12|
+		// Current capacity: 6/oo
+
+		///////////// STACKS /////////////
 	}
 }
