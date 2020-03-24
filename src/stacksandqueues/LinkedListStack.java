@@ -51,7 +51,7 @@ public class LinkedListStack {
 	 * Print the elements in the stack with it's filled capacity
 	 */
 	public void print() {
-		System.out.println("Your stack: ");
+		System.out.println("Your Stack: ");
 
 		// Empty
 		if (this.list.getSize() == 0) {
@@ -66,7 +66,7 @@ public class LinkedListStack {
 
 			// First element case
 			if (current == this.list.getHead())
-				System.out.println("|" + current.getData() + "| <- TOP");
+				System.out.println("|" + current.getData() + "| <- LAST IN FIRST OUT");
 
 			// Remaining elements case
 			else

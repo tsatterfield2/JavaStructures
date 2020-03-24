@@ -26,7 +26,7 @@ public class ArrayStack {
 	public void push(int data) {
 
 		// Capacity is reached
-		if (top >= this.capacity - 1)
+		if (this.top >= this.capacity - 1)
 			System.out.println("Stack overflow");
 
 		// Change top to index the newest element
@@ -73,7 +73,7 @@ public class ArrayStack {
 	 * Print the elements in the stack with it's filled capacity
 	 */
 	public void print() {
-		System.out.println("Your stack: ");
+		System.out.println("Your Stack: ");
 
 		// Empty
 		if (this.filled == 0) {
@@ -85,7 +85,7 @@ public class ArrayStack {
 
 			// First element case
 			if (i == 0)
-				System.out.println("|" + stack[this.filled - 1 - i] + "| <- TOP");
+				System.out.println("|" + stack[this.filled - 1 - i] + "| <- LAST IN FIRST OUT");
 
 			// Remaining elements case
 			else

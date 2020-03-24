@@ -3,7 +3,9 @@ package driver;
 import linkedlists.CircularLinkedList;
 import linkedlists.DoublyLinkedList;
 import linkedlists.SinglyLinkedList;
+import stacksandqueues.ArrayQueue;
 import stacksandqueues.ArrayStack;
+import stacksandqueues.LinkedListQueue;
 import stacksandqueues.LinkedListStack;
 
 public class Tester {
@@ -12,6 +14,7 @@ public class Tester {
 		boolean found;
 		int size;
 		int popped;
+		int dequeued;
 
 		///////////// LINKED LISTS /////////////
 
@@ -205,5 +208,74 @@ public class Tester {
 		// Current capacity: 6/oo
 
 		///////////// STACKS /////////////
+
+		System.out.println("");
+
+		///////////// QUEUES /////////////
+
+		///////////// ARRAY QUEUE /////////////
+		ArrayQueue aq = new ArrayQueue(5);
+
+		dequeued = aq.dequeue();
+		// Queue is empty
+		aq.enqueue(3);
+		// 3 pushed into the queue
+		aq.enqueue(5);
+		// 5 pushed into the queue
+		aq.enqueue(9);
+		// 9 pushed into the queue
+		aq.enqueue(7);
+		// 7 pushed into the queue
+		aq.enqueue(1);
+		// 1 pushed into the queue
+		aq.enqueue(8);
+		// Queue is full
+		dequeued = aq.dequeue();
+		// dequeued == 3
+		dequeued = aq.dequeue();
+		// dequeued == 5
+		found = aq.search(5);
+		// found == false
+		aq.print();
+		// Your Queue:
+		// |1|
+		// |7|
+		// |9| <- FIRST IN FIRST OUT
+		// Current capacity: 3/5
+
+		///////////// LINKED LIST QUE /////////////
+		LinkedListQueue lq = new LinkedListQueue();
+
+		dequeued = lq.dequeue();
+		// Queue is empty
+		lq.enqueue(3);
+		// 3 pushed into the queue
+		lq.enqueue(5);
+		// 5 pushed into the queue
+		lq.enqueue(9);
+		// 9 pushed into the queue
+		lq.enqueue(7);
+		// 7 pushed into the queue
+		lq.enqueue(1);
+		// 1 pushed into the queue
+		lq.enqueue(8);
+		// 8 pushed into the queue
+		dequeued = lq.dequeue();
+		// dequeued == 3
+		dequeued = lq.dequeue();
+		// dequeued == 5
+		found = lq.search(5);
+		// found == false
+		lq.print();
+		// Your Queue:
+		// |8|
+		// |1|
+		// |7|
+		// |9| <- FIRST IN FIRST OUT
+		// Current capacity: 4/oo
+
+		///////////// QUEUES /////////////
+
+		System.out.println("");
 	}
 }
