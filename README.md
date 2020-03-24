@@ -1,41 +1,78 @@
 # Java-Structures
 A bunch of data structures and their operations designed in Java for educational purposes.
 
-# Linked Lists
+## Linked Lists
 - Dynamically sizing
 - No random access
 - Nodes point to other nodes
 
-### Operations:
-##### Insert
+| List Type  | Trait |
+| ------------- | ------------- |
+| **Singly Linked List**  | Nodes only point to the next node  |
+| **Doubly Linked List**  | Nodes point to previous and next node  |
+| **Circular Linked List**  | Last node points back to the head node  |
+
+#### Operations:
 	- insertHead
 		- Inserts a new head node
 	- insertEnd
 		- Inserts a node to the end
 	- insertAt
 		- Inserts a node at an index (starting at 0=head)
-##### Delete
 	- deleteHead
 		- Deletes the head node
 	- deleteEnd
 		- Deletes the last node
 	- deleteAt
 		- Deletes a node at an index (starting at 0=head)
-##### Other
 	- print
 		- Prints easily readable list
-	- printReverse
-		- Prints the list in reverse (Doubly Linked List Only)
+	- printReverse (Doubly Linked List Only)
+		- Prints the list in reverse
 	- search
 		- Searches the list for a key
 	- getSize
 		- Returns how many nodes are in the list
 
-### Singly Linked List
-- Nodes point to only the next node
+## Stacks
+-  Last In First Out (LIFO)
+-  Array or Linked List versions
 
-### Doubly Linked List
-- Nodes point to the previous and next node
+| Stack Type  | Trait |
+| ------------- | ------------- |
+| **Array Stack**  | Fixed capacity when created  |
+| **Linked List Stack**  | No max capacity  |
 
-### Cirular Linked List
-- Last node points back to the head node
+#### Operations:
+    - push
+        - Inserts an element to the top of the stack
+    - pop
+        - Returns and removes the top element in the stack
+    - peek
+        - Prints the current top element in the stack
+    - search
+        - Searches the stack for a key
+    - print
+        - Prints all contents of the stack
+
+## Queues
+- First In First Out (FIFO)
+- Array or Linked List versions
+
+| Queue Type  | Trait |
+| ------------- | ------------- |
+| **Array Queue**  | Fixed capacity when created  |
+| **Linked List Queue**  | No max capacity  |
+
+#### Operations:
+    - enqueue
+        - Inserts an element to the end of the queue
+    - dequeue
+        - Returns and removes the first element in the queue
+    - search
+        - Searches the queue for a key
+    - print
+        - Prints all contents of the queue
+    - isFull (Array Queue Only)
+        - Checks if the queue is full
+
