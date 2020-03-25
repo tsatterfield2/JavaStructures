@@ -7,6 +7,7 @@ import stacksandqueues.ArrayQueue;
 import stacksandqueues.ArrayStack;
 import stacksandqueues.LinkedListQueue;
 import stacksandqueues.LinkedListStack;
+import trees.BinarySearchTree;
 
 public class Tester {
 
@@ -15,6 +16,10 @@ public class Tester {
 		int size;
 		int popped;
 		int dequeued;
+		
+		System.out.println("---------------------------------------");
+		System.out.println("	    LINKED LISTS");
+		System.out.print("---------------------------------------");
 
 		///////////// LINKED LISTS /////////////
 
@@ -130,8 +135,10 @@ public class Tester {
 
 		///////////// LINKED LISTS /////////////
 
-		System.out.println("\n");
-
+		System.out.println("---------------------------------------");
+		System.out.println("	        STACKS");
+		System.out.println("---------------------------------------");
+		
 		///////////// STACKS /////////////
 
 		///////////// ARRAY STACK /////////////
@@ -208,8 +215,10 @@ public class Tester {
 		// Current capacity: 6/oo
 
 		///////////// STACKS /////////////
-
-		System.out.println("");
+		
+		System.out.println("---------------------------------------");
+		System.out.println("	        QUEUES");
+		System.out.println("---------------------------------------");
 
 		///////////// QUEUES /////////////
 
@@ -275,7 +284,30 @@ public class Tester {
 		// Current capacity: 4/oo
 
 		///////////// QUEUES /////////////
-
-		System.out.println("");
+		
+		System.out.println("---------------------------------------");
+		System.out.println("	        TREES");
+		System.out.println("---------------------------------------");
+		
+		///////////// TREES /////////////
+		
+		///////////// BINARY SEARCH TREE /////////////
+		BinarySearchTree bt = new BinarySearchTree();
+		
+		bt.insert(10);
+		// 10 inserted into the BST
+		bt.insert(5);
+		// 5 inserted into the BST
+		bt.insert(15);
+		// 15 inserted into the BST
+		bt.insert(12);
+		// 12 inserted into the BST
+		bt.breadthFirst();
+		// Breadth First Search of your BST:
+		// [ 10  5  15  12 ]
+		found = bt.search(5);
+		// found == true
+		
+		///////////// TREES /////////////
 	}
 }

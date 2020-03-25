@@ -273,7 +273,7 @@ public class CircularLinkedList {
 			System.out.print(current.getData() + " -> ");
 			current = current.next;
 		}
-		System.out.print("Back to Head");
+		System.out.print("Back to Head\n");
 	}
 
 	/**

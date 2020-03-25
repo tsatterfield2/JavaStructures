@@ -90,9 +90,7 @@ public class DoublyLinkedList {
 			size++;
 			return;
 		}
-
 		Node current = this.head;
-
 		// Get to the end
 		while (current.next != null) {
 			current = current.next;
@@ -159,6 +157,11 @@ public class DoublyLinkedList {
 			return;
 		}
 
+		if (this.size == 1) {
+			this.head = null;
+			this.size = 0;
+			return;
+		}
 		this.head = this.head.next;
 		this.head.previous = null;
 		this.size--;

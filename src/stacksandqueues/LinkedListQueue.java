@@ -82,6 +82,15 @@ public class LinkedListQueue {
 		}
 
 		// Current capacity
-		System.out.println("Current capacity: " + this.list.getSize() + "/oo\n");
+		System.out.println("Current capacity: " + this.list.getSize() + "/oo");
+	}
+
+	/**
+	 * Return the list
+	 * 
+	 * @return
+	 */
+	public DoublyLinkedList getList() {
+		return this.list;
 	}
 }

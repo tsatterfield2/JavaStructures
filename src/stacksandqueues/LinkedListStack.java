@@ -76,7 +76,7 @@ public class LinkedListStack {
 		}
 
 		// Current capacity
-		System.out.println("Current capacity: " + this.list.getSize() + "/oo\n");
+		System.out.println("Current capacity: " + this.list.getSize() + "/oo");
 	}
 
 	/**
