@@ -16,7 +16,7 @@ public class Tester {
 		int size;
 		int popped;
 		int dequeued;
-		
+
 		System.out.println("---------------------------------------");
 		System.out.println("	    LINKED LISTS");
 		System.out.print("---------------------------------------");
@@ -138,7 +138,7 @@ public class Tester {
 		System.out.println("---------------------------------------");
 		System.out.println("	        STACKS");
 		System.out.println("---------------------------------------");
-		
+
 		///////////// STACKS /////////////
 
 		///////////// ARRAY STACK /////////////
@@ -215,7 +215,7 @@ public class Tester {
 		// Current capacity: 6/oo
 
 		///////////// STACKS /////////////
-		
+
 		System.out.println("---------------------------------------");
 		System.out.println("	        QUEUES");
 		System.out.println("---------------------------------------");
@@ -284,16 +284,16 @@ public class Tester {
 		// Current capacity: 4/oo
 
 		///////////// QUEUES /////////////
-		
+
 		System.out.println("---------------------------------------");
 		System.out.println("	        TREES");
 		System.out.println("---------------------------------------");
-		
+
 		///////////// TREES /////////////
-		
+
 		///////////// BINARY SEARCH TREE /////////////
 		BinarySearchTree bt = new BinarySearchTree();
-		
+
 		bt.insert(10);
 		// 10 inserted into the BST
 		bt.insert(5);
@@ -302,12 +302,31 @@ public class Tester {
 		// 15 inserted into the BST
 		bt.insert(12);
 		// 12 inserted into the BST
+		bt.insert(1);
+		// 1 inserted into the BST
+		bt.insert(3);
+		// 3 inserted into the BST
+		bt.insert(11);
+		// 11 inserted into the BST
+		bt.delete(10);
+		// 10 deleted from the BST
+		bt.delete(1);
+		// 1 deleted from the BST
 		bt.breadthFirst();
 		// Breadth First Search of your BST:
-		// [ 10  5  15  12 ]
+		// [ 10 5 15 1 12 ]
+		bt.inOrder();
+		// In-Order Traversal of your BST:
+		// [ 1 5 10 12 15 ]
+		bt.preOrder();
+		// Pre-Order Traversal of your BST:
+		// [ 10 5 1 15 12 ]
+		bt.postOrder();
+		// Post-Order Traversal of your BST:
+		// [ 1 5 12 15 10 ]
 		found = bt.search(5);
 		// found == true
-		
+
 		///////////// TREES /////////////
 	}
 }

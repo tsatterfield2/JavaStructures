@@ -75,4 +75,30 @@ A bunch of data structures and their operations designed in Java for educational
         - Prints all contents of the queue
     - isFull (Array Queue Only)
         - Checks if the queue is full
+        
+## Trees
+- Each tree contains nodes with attached child nodes
+- Maximum height of O(n)
+- Minimum height of O(logn)
+
+| Tree Type  | Trait |
+| ------------- | ------------- |
+| **Binary Search Tree**  | Left nodes are smaller than root; Right nodes are larger than root  |
+
+#### Operations:
+    - insert
+    		- Insert a node into the BST
+    - delete
+    		- Delete a node from the BST
+    - search
+    		- Search the tree for a node
+    - breadthFirst
+    		- Print the level order list of the tree
+    - inOrder
+    		- Print the in-order list of the tree
+    - preOrder
+    		- Print the pre-order list of the tree
+    - postOrder
+    		- Print the post-order list of the tree
+    	
 

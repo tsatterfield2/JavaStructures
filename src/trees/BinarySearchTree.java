@@ -189,7 +189,7 @@ public class BinarySearchTree {
 
 			// Dequeue from the queue as the current node
 			current = que.remove();
-			System.out.print(" " + current.getData() + " ");
+			System.out.print(" " + current.getData());
 
 			// Add the left child to the queue so long as it isn't empty
 			if (current.left != null) {
@@ -201,8 +201,169 @@ public class BinarySearchTree {
 				que.add(current.right);
 			}
 		}
+		System.out.print(" ]\n");
+	}
 
-		System.out.print("]\n");
+	/**
+	 * Traversal for the pattern left, root, right
+	 */
+	public void inOrder() {
+		System.out.println("In-Order Traversal of your BST:");
+		System.out.print("[");
+		this.inOrderHelp(this.root);
+		System.out.print(" ]\n");
+	}
+
+	/**
+	 * Recursive helper
+	 * 
+	 * @param current
+	 */
+	private void inOrderHelp(Node current) {
+
+		// Base case
+		if (current == null) {
+			return;
+		}
+
+		// Left first
+		this.inOrderHelp(current.left);
+
+		// Print the node
+		System.out.print(" " + current.key);
+
+		// Right next
+		this.inOrderHelp(current.right);
+	}
+
+	/**
+	 * Traversal for the pattern root, left, right
+	 */
+	public void preOrder() {
+		System.out.println("Pre-Order Traversal of your BST:");
+		System.out.print("[");
+		this.preOrderHelp(this.root);
+		System.out.print(" ]\n");
+	}
+
+	/**
+	 * Recursive helper
+	 * 
+	 * @param current
+	 */
+	private void preOrderHelp(Node current) {
+
+		// Base case
+		if (current == null) {
+			return;
+		}
+
+		// Print the node
+		System.out.print(" " + current.key);
+
+		// Left next
+		this.preOrderHelp(current.left);
+
+		// Right next
+		this.preOrderHelp(current.right);
+	}
+
+	/**
+	 * Traversal for the pattern left, right, root
+	 */
+	public void postOrder() {
+		System.out.println("Post-Order Traversal of your BST:");
+		System.out.print("[");
+		this.postOrderHelp(this.root);
+		System.out.print(" ]\n");
+	}
+
+	/**
+	 * Recursive helper
+	 * 
+	 * @param current
+	 */
+	private void postOrderHelp(Node current) {
+
+		// Base case
+		if (current == null) {
+			return;
+		}
+
+		// Left first
+		this.postOrderHelp(current.left);
+
+		// Right next
+		this.postOrderHelp(current.right);
+
+		// Print the node
+		System.out.print(" " + current.key);
+	}
+
+	/**
+	 * Delete a node from the tree
+	 * 
+	 * @param data
+	 */
+	public void delete(int data) {
+		System.out.println(data + " deleted from the BST");
+		this.deleteHelp(this.root, data);
+	}
+
+	/**
+	 * Primary recursive function to delete and replace a node
+	 * 
+	 * @param current
+	 * @param data
+	 * @return
+	 */
+	private Node deleteHelp(Node current, int data) {
+
+		// Base case
+		if (current == null) {
+			return current;
+		}
+
+		// Traverse down left side
+		if (current.key > data) {
+			current.left = this.deleteHelp(current.left, data);
+		}
+
+		// Traverse down right side
+		else if (current.key < data) {
+			current.right = this.deleteHelp(current.right, data);
+		}
+
+		// Found the node to be deleted
+		else {
+
+			// The node only has a right child
+			if (current.left == null) {
+				return current.right;
+			}
+
+			// The node only has a left child
+			else if (current.right == null) {
+				return current.left;
+			}
+
+			// If it reached here, the node must have 2 children
+			int min = current.key;
+			Node temp = current.right;
+
+			// Find the smallest value on the right side of the tree
+			while (temp.left != null) {
+				min = temp.left.key;
+				temp = temp.left;
+			}
+
+			// Move node
+			current.key = min;
+
+			// Delete the moved node from the right side
+			current.right = deleteHelp(current.right, current.key);
+		}
+		return current;
 	}
 
 	/**
