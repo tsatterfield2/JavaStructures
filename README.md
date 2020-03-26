@@ -87,18 +87,16 @@ A bunch of data structures and their operations designed in Java for educational
 
 #### Operations:
     - insert
-    		- Insert a node into the BST
+    	- Insert a node into the BST
     - delete
-    		- Delete a node from the BST
+    	- Delete a node from the BST
     - search
-    		- Search the tree for a node
+    	- Search the tree for a node
     - breadthFirst
-    		- Print the level order list of the tree
+    	- Print the level order list of the tree
     - inOrder
-    		- Print the in-order list of the tree
+    	- Print the in-order list of the tree
     - preOrder
-    		- Print the pre-order list of the tree
+    	- Print the pre-order list of the tree
     - postOrder
-    		- Print the post-order list of the tree
-    	
-
+    	- Print the post-order list of the tree
